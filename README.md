@@ -86,8 +86,8 @@ MBA_Final/
 ### Instalação
 ```bash
 # Clonar o repositório
-git clone <url-do-repositorio>
-cd MBA_Final
+git clone https://github.com/marciolemosti/MBA_BIGDATA
+cd MBA_BIGDATA
 
 # Instalar dependências
 pip install -r requirements.txt
