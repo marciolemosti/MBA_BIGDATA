@@ -1,0 +1,305 @@
+2025-06-19 18:04:10 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-19 18:04:10 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_manager | data_manager.__init__:55 | Gerenciador de dados econômicos inicializado
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.main:404 | === Iniciando Atualização Automática de Dados ===
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.__init__:61 | Atualizador de dados econômicos inicializado
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:83 | Iniciando atualização de todos os indicadores
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: ipca
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: selic
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: cambio_ptax_venda
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: deficit_primario
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: arrecadacao_iof
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: pib
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: desemprego
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data._save_update_report:395 | Relatório de atualização salvo: C:\ML\Pos_Unifor\Projeto Completo\MBA_Final\reports\update_report_20250619_180410.json
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:122 | Atualização concluída: 7/7 indicadores atualizados
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.main:411 | Atualização concluída em 0.03 segundos
+2025-06-19 18:04:10 | INFO     | dashboard_economico.data_updater | update_data.main:412 | Indicadores atualizados: 7/7
+2025-06-19 18:06:06 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-19 18:06:06 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-19 18:06:06 | INFO     | dashboard_economico.data_manager | data_manager.__init__:55 | Gerenciador de dados econômicos inicializado
+2025-06-19 18:06:29 | INFO     | dashboard_economico.forecast_models | forecast_models.__init__:66 | Motor de previsões inicializado - Horizonte: 24 meses
+2025-06-19 18:06:42 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:06:43 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:06:43 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador ipca carregados: 59 registros
+2025-06-19 18:06:44 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:06:44 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador selic carregados: 1253 registros
+2025-06-19 18:06:45 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:06:45 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador cambio_ptax_venda carregados: 1253 registros
+2025-06-19 18:06:49 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:07:06 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:07:18 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:07:18 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-19 18:07:18 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 3 indicadores
+2025-06-19 18:07:23 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-19 18:07:23 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:07:24 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:07:24 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:07:24 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:07:24 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador deficit_primario carregados: 55 registros
+2025-06-19 18:07:25 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:07:25 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador arrecadacao_iof carregados: 58 registros
+2025-06-19 18:07:25 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:07:26 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador pib carregados: 20 registros
+2025-06-19 18:07:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:07:26 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador desemprego carregados: 60 registros
+2025-06-19 18:07:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:07:26 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:13:57 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:13:59 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:14:08 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:14:11 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:14:12 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:14:26 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:14:37 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:14:44 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:14:45 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 4 de 4 indicadores solicitados
+2025-06-19 18:14:45 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 4 indicadores
+2025-06-19 18:14:46 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 4 de 4 indicadores solicitados
+2025-06-19 18:14:47 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:14:47 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:14:48 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:14:48 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:14:48 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:14:48 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:14:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:14:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:14:49 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:15:32 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:15:34 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:15:44 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:15:54 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:16:01 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:16:09 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:16:09 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:16:09 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 5 indicadores
+2025-06-19 18:16:10 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:16:10 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:16:11 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:16:11 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:16:11 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:16:11 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:16:12 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:16:12 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:16:12 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:16:12 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:36:29 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:36:29 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:36:30 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:36:31 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:36:32 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:36:32 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 5 indicadores
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:36:32 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:36:33 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:36:34 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:36:34 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:36:34 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:36:35 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:36:36 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:36:37 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:36:37 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:36:38 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:36:38 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para desemprego usando modelo prophet
+2025-06-19 18:36:38 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 6 de 6 indicadores solicitados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 6 indicadores
+2025-06-19 18:36:38 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 6 de 6 indicadores solicitados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:36:38 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador ipca carregados: 59 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador selic carregados: 1253 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador cambio_ptax_venda carregados: 1253 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador arrecadacao_iof carregados: 58 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador deficit_primario carregados: 55 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador desemprego carregados: 60 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:37:46 | WARNING  | dashboard_economico.data_manager | data_manager.load_indicator_data:189 | Dados do indicador pib contêm erros: ['Alto percentual de outliers detectados: 15.0% (3 de 20 observações)']
+2025-06-19 18:37:46 | INFO     | dashboard_economico.validators | validators.sanitize_dataframe:376 | DataFrame sanitizado: 20 -> 20 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador pib carregados: 20 registros
+2025-06-19 18:37:46 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:37:47 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:37:47 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:37:48 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:37:48 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:37:49 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para desemprego usando modelo prophet
+2025-06-19 18:37:49 | WARNING  | dashboard_economico.forecast_models | forecast_models.generate_forecast:97 | Dados insuficientes para previsão: 20 < 24
+2025-06-19 18:37:49 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 7 de 7 indicadores solicitados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 7 indicadores
+2025-06-19 18:37:49 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 7 de 7 indicadores solicitados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:37:49 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:46:19 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:20 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:46:21 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:46:22 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:46:22 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:46:22 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:46:23 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:23 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:46:23 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para desemprego usando modelo prophet
+2025-06-19 18:46:24 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:46:25 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:46:25 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:46:26 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:46:26 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para desemprego usando modelo prophet
+2025-06-19 18:46:26 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 6 de 6 indicadores solicitados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 6 indicadores
+2025-06-19 18:46:26 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 6 de 6 indicadores solicitados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:46:26 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:46:27 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:27 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:46:28 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:46:28 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:46:29 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:46:29 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:46:30 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para desemprego usando modelo prophet
+2025-06-19 18:46:30 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 6 de 6 indicadores solicitados
+2025-06-19 18:46:30 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 6 indicadores
+2025-06-19 18:46:30 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:30 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:46:31 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:46:32 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:46:32 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:46:33 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para deficit_primario usando modelo prophet
+2025-06-19 18:46:33 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 5 indicadores
+2025-06-19 18:46:33 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 5 de 5 indicadores solicitados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:46:33 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-19 18:47:18 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:47:18 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:47:19 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:47:20 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:47:20 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo moving_average
+2025-06-19 18:47:20 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:47:21 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-19 18:47:22 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-19 18:47:22 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para arrecadacao_iof usando modelo prophet
+2025-06-19 18:47:22 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 4 de 4 indicadores solicitados
+2025-06-19 18:47:22 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 4 indicadores
+2025-06-19 18:47:22 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 4 de 4 indicadores solicitados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-19 18:47:23 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-20 11:47:00 | INFO     | dashboard_economico.cache_service | cache_service._load_cache:115 | Cache carregado: 0 entradas
+2025-06-20 11:47:00 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-20 11:47:00 | INFO     | dashboard_economico.cache_service | cache_service._load_cache:115 | Cache carregado: 0 entradas
+2025-06-20 11:47:00 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_manager | data_manager.__init__:55 | Gerenciador de dados econômicos inicializado
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.main:404 | === Iniciando Atualização Automática de Dados ===
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.__init__:61 | Atualizador de dados econômicos inicializado
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:83 | Iniciando atualização de todos os indicadores
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: ipca
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: selic
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: cambio_ptax_venda
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: deficit_primario
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: arrecadacao_iof
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: pib
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:90 | Atualizando indicador: desemprego
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data._save_update_report:395 | Relatório de atualização salvo: C:\ML\Pos_Unifor\Projeto Completo\MBA_Final\reports\update_report_20250620_114700.json
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.update_all_indicators:122 | Atualização concluída: 7/7 indicadores atualizados
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.main:411 | Atualização concluída em 0.00 segundos
+2025-06-20 11:47:00 | INFO     | dashboard_economico.data_updater | update_data.main:412 | Indicadores atualizados: 7/7
+2025-06-20 11:47:13 | INFO     | dashboard_economico.cache_service | cache_service._load_cache:115 | Cache carregado: 0 entradas
+2025-06-20 11:47:13 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-20 11:47:13 | INFO     | dashboard_economico.cache_service | cache_service._load_cache:115 | Cache carregado: 0 entradas
+2025-06-20 11:47:13 | INFO     | dashboard_economico.cache_service | cache_service.__init__:79 | Serviço de cache 'default' inicializado
+2025-06-20 11:47:13 | INFO     | dashboard_economico.data_manager | data_manager.__init__:55 | Gerenciador de dados econômicos inicializado
+2025-06-20 11:47:14 | INFO     | dashboard_economico.forecast_models | forecast_models.__init__:66 | Motor de previsões inicializado - Horizonte: 24 meses
+2025-06-20 11:47:14 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-20 11:47:14 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-20 11:47:14 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador ipca carregados: 62 registros
+2025-06-20 11:47:14 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-20 11:47:14 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador selic carregados: 1256 registros
+2025-06-20 11:47:14 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-20 11:47:14 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador cambio_ptax_venda carregados: 1256 registros
+2025-06-20 11:47:14 | INFO     | dashboard_economico.forecast_models | forecast_models._select_best_model:218 | Selecionado Prophet para ipca (modelo preferencial)
+2025-06-20 11:47:15 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo prophet
+2025-06-20 11:47:15 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-20 11:47:16 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 3 indicadores
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador deficit_primario carregados: 58 registros
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador arrecadacao_iof carregados: 61 registros
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador pib carregados: 23 registros
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.load_indicator_data:197 | Dados do indicador desemprego carregados: 63 registros
+2025-06-20 11:47:16 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-20 11:47:16 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos
+2025-06-20 12:06:49 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-20 12:06:49 | INFO     | dashboard_economico.forecast_models | forecast_models._select_best_model:218 | Selecionado Prophet para ipca (modelo preferencial)
+2025-06-20 12:06:50 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para ipca usando modelo prophet
+2025-06-20 12:06:52 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para selic usando modelo prophet
+2025-06-20 12:06:52 | INFO     | dashboard_economico.forecast_models | forecast_models.generate_forecast:119 | Previsão gerada para cambio_ptax_venda usando modelo prophet
+2025-06-20 12:06:52 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-20 12:06:52 | INFO     | dashboard_economico.data_manager | data_manager.get_correlation_matrix:329 | Matriz de correlação calculada para 3 indicadores
+2025-06-20 12:06:52 | INFO     | dashboard_economico.data_manager | data_manager.get_multiple_indicators:292 | Carregados 3 de 3 indicadores solicitados
+2025-06-20 12:06:52 | INFO     | dashboard_economico.data_manager | data_manager.get_available_indicators:91 | Indicadores disponíveis: ['ipca', 'selic', 'cambio_ptax_venda', 'deficit_primario', 'arrecadacao_iof', 'pib', 'desemprego']
+2025-06-20 12:06:52 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame ipca: 0 erros encontrados
+2025-06-20 12:06:52 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame selic: 0 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame cambio_ptax_venda: 0 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame deficit_primario: 0 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame arrecadacao_iof: 0 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame pib: 1 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.validators | validators.validate_dataframe:98 | Validação do DataFrame desemprego: 0 erros encontrados
+2025-06-20 12:06:53 | INFO     | dashboard_economico.data_manager | data_manager.get_data_quality_report:384 | Relatório de qualidade gerado: 6/7 indicadores válidos

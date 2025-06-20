@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-06-20T11:47:00.695243",
+  "force_update": false,
+  "indicators": {
+    "ipca": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "selic": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "cambio_ptax_venda": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "deficit_primario": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "arrecadacao_iof": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "pib": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    },
+    "desemprego": {
+      "success": true,
+      "action": "skipped",
+      "reason": "Dados já atualizados",
+      "timestamp": "2025-06-20T11:47:00.695243"
+    }
+  },
+  "summary": {
+    "total_indicators": 7,
+    "updated_indicators": 7,
+    "failed_indicators": 0,
+    "errors": []
+  },
+  "duration_seconds": 0.0,
+  "completed_at": "2025-06-20T11:47:00.695243"
+}

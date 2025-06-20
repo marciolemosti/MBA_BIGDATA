@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-06-19T16:53:58.189165",
+  "force_update": false,
+  "indicators": {
+    "ipca": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 62,
+      "timestamp": "2025-06-19T16:53:58.219952"
+    },
+    "selic": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 1256,
+      "timestamp": "2025-06-19T16:53:58.652243"
+    },
+    "cambio_ptax_venda": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 1256,
+      "timestamp": "2025-06-19T16:53:59.032080"
+    },
+    "deficit_primario": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 58,
+      "timestamp": "2025-06-19T16:53:59.054497"
+    },
+    "arrecadacao_iof": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 61,
+      "timestamp": "2025-06-19T16:53:59.076513"
+    },
+    "pib": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 23,
+      "timestamp": "2025-06-19T16:53:59.088455"
+    },
+    "desemprego": {
+      "success": true,
+      "action": "updated",
+      "records_added": 3,
+      "total_records": 63,
+      "timestamp": "2025-06-19T16:53:59.112932"
+    }
+  },
+  "summary": {
+    "total_indicators": 7,
+    "updated_indicators": 7,
+    "failed_indicators": 0,
+    "errors": []
+  },
+  "duration_seconds": 0.9238,
+  "completed_at": "2025-06-19T16:53:59.112965"
+}

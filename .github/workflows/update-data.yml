@@ -1,0 +1,205 @@
+name: Atualização Automática de Dados Econômicos
+
+on:
+  schedule:
+    # Execução às 8:00 UTC (5:00 BRT) todos os dias
+    - cron: '0 8 * * *'
+    # Execução às 18:00 UTC (15:00 BRT) todos os dias  
+    - cron: '0 18 * * *'
+  
+  # Permitir execução manual
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Forçar atualização completa dos dados'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+  
+jobs:
+  update-economic-data:
+    name: Atualizar Indicadores Econômicos
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Configurar Timezone
+      run: |
+        sudo timedatectl set-timezone America/Sao_Paulo
+        echo "Timezone configurado para: $(timedatectl show --property=Timezone --value)"
+    
+    - name: Executar Atualização de Dados
+      run: |
+        python scripts/update_data.py
+      env:
+        FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Verificar Alterações
+      id: verify-changes
+      run: |
+        if [[ -n $(git status --porcelain) ]]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Alterações detectadas nos dados"
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "Nenhuma alteração nos dados"
+        fi
+    
+    - name: Commit e Push das Alterações
+      if: steps.verify-changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        git add logs/
+        git commit -m "📊 Atualização automática dos dados econômicos - $(date '+%Y-%m-%d %H:%M:%S')"
+        git push
+    
+    - name: Gerar Relatório de Atualização
+      if: always()
+      run: |
+        python scripts/generate_update_report.py
+        
+    - name: Upload do Relatório
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: relatorio-atualizacao-${{ github.run_number }}
+        path: reports/update_report_*.json
+        retention-days: 30
+
+  validate-data-quality:
+    name: Validar Qualidade dos Dados
+    needs: update-economic-data
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Executar Validação de Qualidade
+      run: |
+        python scripts/validate_data_quality.py
+    
+    - name: Upload do Relatório de Qualidade
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: relatorio-qualidade-${{ github.run_number }}
+        path: reports/quality_report_*.json
+        retention-days: 30
+
+  deploy-dashboard:
+    name: Deploy do Dashboard
+    needs: [update-economic-data, validate-data-quality]
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Executar Testes do Dashboard
+      run: |
+        python -m pytest tests/ -v --tb=short
+    
+    - name: Gerar Build do Dashboard
+      run: |
+        python scripts/build_dashboard.py
+    
+    - name: Notificar Sucesso
+      if: success()
+      run: |
+        echo "✅ Pipeline de atualização executado com sucesso"
+        echo "📊 Dados atualizados e dashboard validado"
+        echo "🕐 Horário: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+
+  cleanup:
+    name: Limpeza e Manutenção
+    needs: [update-economic-data, validate-data-quality, deploy-dashboard]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Executar Limpeza de Cache
+      run: |
+        python scripts/cleanup_cache.py
+    
+    - name: Arquivar Logs Antigos
+      run: |
+        python scripts/archive_logs.py
+    
+    - name: Otimizar Repositório
+      run: |
+        git gc --prune=now
+        git repack -ad
+    
+    - name: Relatório Final
+      run: |
+        echo "🧹 Limpeza e manutenção concluídas"
+        echo "📈 Pipeline completo executado com sucesso"
+        echo "⏰ Próxima execução: $(date -d '+12 hours' '+%Y-%m-%d %H:%M:%S %Z')"
+

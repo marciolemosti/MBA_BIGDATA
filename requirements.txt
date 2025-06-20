@@ -1,0 +1,21 @@
+# Dashboard Econômico Brasileiro - MBA Final
+# Dependências otimizadas para produção acadêmica
+# Autor: Márcio Lemos
+
+# Framework Principal
+streamlit>=1.28.0
+plotly>=5.15.0
+
+# Análise de Dados
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Modelos de Previsão
+prophet>=1.1.0
+statsmodels>=0.14.0
+
+# Utilitários
+pyyaml>=6.0
+python-dateutil>=2.8.0
+requests>=2.31.0
+
