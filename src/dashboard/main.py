@@ -16,14 +16,31 @@ import plotly.express as px
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# Configurar caminhos
+# Configurando os caminhos
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-# Configuração da página
+def get_page_icon():
+    """
+    Carrega ícone customizado para a página.
+    Streamlit só aceita emoji ou URL, então uso base64 como fallback.
+    """
+    icon_path = "assets/icons/dash.png"
+    try:
+        if os.path.exists(icon_path):
+            with open(icon_path, "rb") as f:
+                data = f.read()
+                encoded = base64.b64encode(data).decode()
+                return f"data:image/png;base64,{encoded}"
+        else:
+            return "📊"  # Fallback para emoji
+    except Exception:
+        return "📊"  # Fallback se der erro
+        
+# Configuração básica da página
 st.set_page_config(
     page_title="Dashboard Econômico Brasileiro",
-    page_icon="📊",
+    page_icon=get_page_icon(),
     layout="wide",
     initial_sidebar_state="expanded"
 )
