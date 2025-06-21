@@ -71,9 +71,9 @@ indicators:
     categoria: "Câmbio"
     
   deficit_primario:
-    nome: "Resultado Primário"
+    nome: "Défict Primário"
     unidade: "R$ bilhões"
-    descricao: "Resultado primário do governo central"
+    descricao: "Déficit primário do governo central"
     fonte: "Tesouro Nacional"
     frequencia: "Mensal"
     cor: "#9B59B6"
