@@ -15,6 +15,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime, timedelta
 from pathlib import Path
+import base64
 
 # Configurando os caminhos
 PROJECT_ROOT = Path(__file__).parent.parent.parent
