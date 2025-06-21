@@ -93,8 +93,8 @@ class EconomicDashboard:
             st.error("Erro interno do sistema. Verifique os logs para mais detalhes.")
     
     def _render_header(self):
-        """Renderiza o cabeçalho do dashboard."""
-        st.title("📊 Dashboard Econômico Brasileiro")
+        """Carrega o cabeçalho do dashboard."""
+        st.title("Dashboard Econômico Brasileiro")
         st.markdown("### Sistema de Análise de Indicadores Econômicos")
         
         # Informações do projeto
@@ -112,9 +112,9 @@ class EconomicDashboard:
         st.divider()
     
     def _render_sidebar(self):
-        """Renderiza a barra lateral com controles."""
+        """Carrega a barra lateral com controles."""
         with st.sidebar:
-            st.header("⚙️ Configurações")
+            st.header("Configurações")
             
             # Seleção de indicadores
             st.subheader("Indicadores")
@@ -162,12 +162,12 @@ class EconomicDashboard:
             self._render_system_info()
     
     def _render_main_content(self):
-        """Renderiza o conteúdo principal."""
+        """Carrega o conteúdo principal."""
         if not st.session_state.selected_indicators:
             st.warning("Selecione pelo menos um indicador na barra lateral.")
             return
         
-        # Tabs principais
+        # Abas principais
         tab1, tab2, tab3, tab4 = st.tabs([
             "📈 Visualizações", 
             "🔮 Previsões", 
@@ -188,7 +188,7 @@ class EconomicDashboard:
             self._render_reports_tab()
     
     def _render_visualizations_tab(self):
-        """Renderiza a aba de visualizações."""
+        """Carrega a aba de visualizações."""
         st.subheader("Séries Temporais dos Indicadores")
         
         # Carregar dados dos indicadores selecionados
@@ -249,7 +249,7 @@ class EconomicDashboard:
             st.divider()
     
     def _render_forecasts_tab(self):
-        """Renderiza a aba de previsões."""
+        """Carrega a aba de previsões."""
         st.subheader("Previsões Econômicas")
         
         if not st.session_state.selected_indicators:
@@ -342,7 +342,7 @@ class EconomicDashboard:
             st.divider()
     
     def _render_comparative_tab(self):
-        """Renderiza a aba de análise comparativa."""
+        """Carregamento da aba de análise comparativa."""
         st.subheader("Análise Comparativa")
         
         if len(st.session_state.selected_indicators) < 2:
@@ -402,7 +402,7 @@ class EconomicDashboard:
             st.plotly_chart(fig, use_container_width=True)
     
     def _render_reports_tab(self):
-        """Renderiza a aba de relatórios."""
+        """Carrega a aba de relatórios."""
         st.subheader("Relatórios e Análises")
         
         # Relatório de qualidade dos dados
@@ -426,7 +426,7 @@ class EconomicDashboard:
                 st.metric("Score de Qualidade", f"{quality_score:.1%}")
             
             # Botão para download do relatório de qualidade em CSV
-            if st.button("📥 Download Relatório de Qualidade (CSV)"):
+            if st.button("Download Relatório de Qualidade (CSV)"):
                 csv_data = self._generate_quality_csv(quality_report)
                 st.download_button(
                     label="Baixar CSV",
@@ -468,7 +468,7 @@ class EconomicDashboard:
         col1, col2 = st.columns(2)
         
         with col1:
-            if st.button("📥 Download Dados Históricos (CSV)"):
+            if st.button("Download Dados Históricos (CSV)"):
                 csv_data = self._generate_historical_csv()
                 st.download_button(
                     label="Baixar Dados Históricos",
@@ -478,7 +478,7 @@ class EconomicDashboard:
                 )
         
         with col2:
-            if st.button("📥 Download Previsões (CSV)"):
+            if st.button("Download Previsões (CSV)"):
                 csv_data = self._generate_forecasts_csv()
                 st.download_button(
                     label="Baixar Previsões",
@@ -488,7 +488,7 @@ class EconomicDashboard:
                 )
     
     def _render_footer(self):
-        """Renderiza o rodapé."""
+        """Notas de rodapé."""
         st.divider()
         
         col1, col2, col3 = st.columns([1, 2, 1])
@@ -498,7 +498,7 @@ class EconomicDashboard:
                 """
                 <div style='text-align: center; color: #666;'>
                     <p><strong>Dashboard Econômico Brasileiro</strong></p>
-                    <p>MBA em Gestão Analítica em BI e Big Data | Márcio Lemos | 2025</p>
+                    <p>MBA em Gestão Analítica em BI e Big Data - UNIFOR | Márcio Lemos | 2025</p>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -556,7 +556,7 @@ class EconomicDashboard:
             # Cabeçalho
             output.write("Dados Históricos - Dashboard Econômico Brasileiro\n")
             output.write(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n")
-            output.write("Autor: Márcio Lemos - MBA em Gestão Analítica em BI e Big Data\n\n")
+            output.write("Autor: Márcio Lemos - MBA em Gestão Analítica em BI e Big Data - UNIFOR\n\n")
             
             # Cabeçalho dos dados
             output.write("Data,Indicador,Nome,Valor,Unidade,Fonte\n")
