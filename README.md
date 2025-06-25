@@ -17,14 +17,8 @@
 - **Tesouro Nacional API**: Informações fiscais e déficit primário
 - **Receita Federal API**: Dados de arrecadação e IOF
 
-### **Correções Críticas**
-- **Erro de Serialização JSON**: Corrigido com encoder customizado
-- **Tratamento de Tipos Numpy**: Conversão automática int64 → int nativo
-- **Cache Inteligente**: Sistema com TTL configurável e limpeza automática
-- **Rate Limiting**: Proteção contra sobrecarga das APIs
-
 ### **PostgreSQL com Docker**
-- **Banco de Dados Robusto**: PostgreSQL 15 com schemas organizados
+- **Banco de Dados**: PostgreSQL 15 com schemas organizados
 - **Docker Compose**: Ambiente completo com PostgreSQL, Adminer e Redis
 - **Pool de Conexões**: Gerenciamento eficiente de conexões
 - **Migrations**: Scripts de inicialização e estrutura do banco
@@ -33,7 +27,7 @@
 - **Requirements Otimizado**: `requirements-windows.txt` para Windows
 - **Script de Instalação**: `install_windows.bat` automatizado
 - **Docker Alternativo**: `docker-compose-dev.yml` para desenvolvimento
-- **Guia de Solução**: Documentação completa para resolver problemas
+- **Guia de Solução**: Documentação para resolver problemas
 
 ---
 
@@ -119,6 +113,7 @@ streamlit run src/dashboard/main.py --server.port 8501
 ##  **ARQUITETURA DO SISTEMA**
 
 ### **Estrutura de Diretórios**
+
 ```
 MBA_BIGDATA/
 ├── src/
@@ -155,7 +150,7 @@ MBA_BIGDATA/
 
 ---
 
-##  **INDICADORES DISPONÍVEIS**
+## **INDICADORES DISPONÍVEIS**
 
 | Indicador | Fonte | Frequência | Descrição |
 |-----------|-------|------------|-----------|
@@ -169,7 +164,7 @@ MBA_BIGDATA/
 
 ---
 
-##  **PERFORMANCE E QUALIDADE**
+## **PERFORMANCE E QUALIDADE**
 
 ### **Métricas Atuais**
 - **Coleta Completa**: 30-60 segundos (7 indicadores)
@@ -189,13 +184,6 @@ MBA_BIGDATA/
 
 ### **Variáveis de Ambiente (.env)**
 ```bash
-# Banco de Dados
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
-POSTGRES_DB=mba_bigdata
-POSTGRES_USER=mba_user
-POSTGRES_PASSWORD=mba_password_2025
-
 # Cache
 REDIS_HOST=localhost
 REDIS_PORT=6379
@@ -212,7 +200,6 @@ LOG_LEVEL=INFO
 MAX_REQUESTS_PER_MINUTE=60
 RETRY_ATTEMPTS=3
 ```
-
 ---
 
 ##  **SOLUÇÃO DE PROBLEMAS**
@@ -242,7 +229,6 @@ docker-compose restart postgres
 # Ver logs
 docker-compose logs postgres
 ```
-
 ---
 
 ##  **SUPORTE**
