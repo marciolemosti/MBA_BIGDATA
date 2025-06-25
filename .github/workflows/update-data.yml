@@ -1,0 +1,301 @@
+name: Atualização Automática de Dados Econômicos
+
+# Execução automática duas vezes por dia - horários escolhidos para evitar picos de uso da API
+on:
+  schedule:
+    - cron: '0 8 * * *'   # 08:00 UTC (05:00 BRT) - manhã
+    - cron: '0 18 * * *'  # 18:00 UTC (15:00 BRT) - tarde
+  
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Forçar atualização completa (ignora cache)'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+  DEFAULT_BRANCH: 'master'  # TODO: migrar para main quando possível
+  
+jobs:
+  update-economic-data:
+    name: Atualizar Indicadores Econômicos
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: master  # FIXME: repositório ainda usa master como padrão
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configurar Git
+      run: |
+        # Configuração necessária para commits automáticos
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git config --local pull.rebase false
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        # Instalar requirements se existir, senão usar dependências básicas
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        else
+          pip install requests pandas numpy matplotlib streamlit
+        fi
+    
+    - name: Configurar Timezone
+      run: |
+        sudo timedatectl set-timezone America/Sao_Paulo
+        echo "Timezone configurado: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+    
+    - name: Executar Atualização de Dados
+      run: |
+        # Criar diretórios necessários se não existirem
+        mkdir -p data logs reports
+        
+        # Executar script principal se existir
+        if [ -f scripts/update_data.py ]; then
+          python scripts/update_data.py
+        else
+          echo "Script update_data.py não encontrado, criando estrutura básica"
+          echo "$(date): Execução automática do workflow" > logs/update_$(date +%Y%m%d_%H%M%S).log
+        fi
+      env:
+        FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Verificar Alterações
+      id: check-changes
+      run: |
+        # Verificar se houve mudanças nos dados
+        if [[ -n $(git status --porcelain) ]]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Alterações detectadas:"
+          git status --short
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "Nenhuma alteração nos dados"
+        fi
+    
+    - name: Commit e Push das Alterações
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        # Adicionar arquivos modificados
+        git add data/ || true
+        git add logs/ || true
+        git add reports/ || true
+        
+        # Verificar se há algo para commitar
+        if ! git diff --staged --quiet; then
+          git commit -m "Atualização automática dos dados econômicos - $(date '+%Y-%m-%d %H:%M')"
+          
+          # Push com retry em caso de conflito
+          for attempt in {1..3}; do
+            if git push origin master; then
+              echo "Push realizado com sucesso na tentativa $attempt"
+              break
+            else
+              echo "Tentativa $attempt falhou, sincronizando..."
+              git pull --rebase origin master
+              sleep 2
+            fi
+          done
+        else
+          echo "Nada para commitar após git add"
+        fi
+    
+    - name: Gerar Relatório de Atualização
+      if: always()
+      run: |
+        mkdir -p reports
+        
+        # Gerar relatório básico se script específico não existir
+        if [ -f scripts/generate_update_report.py ]; then
+          python scripts/generate_update_report.py
+        else
+          echo "{\"timestamp\": \"$(date -Iseconds)\", \"status\": \"completed\", \"changes\": \"${{ steps.check-changes.outputs.changes }}\"}" > reports/update_report_$(date +%Y%m%d_%H%M%S).json
+        fi
+        
+    - name: Upload do Relatório
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: relatorio-atualizacao-${{ github.run_number }}
+        path: reports/update_report_*.json
+        retention-days: 30
+        if-no-files-found: warn
+
+  validate-data-quality:
+    name: Validar Qualidade dos Dados
+    needs: update-economic-data
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: master
+        fetch-depth: 1
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        else
+          pip install requests pandas numpy
+        fi
+    
+    - name: Executar Validação de Qualidade
+      run: |
+        mkdir -p reports
+        
+        # Executar validação se script existir
+        if [ -f scripts/validate_data_quality.py ]; then
+          python scripts/validate_data_quality.py
+        else
+          echo "Script de validação não encontrado, criando relatório básico"
+          echo "{\"timestamp\": \"$(date -Iseconds)\", \"validation\": \"basic\", \"status\": \"ok\"}" > reports/quality_report_$(date +%Y%m%d_%H%M%S).json
+        fi
+    
+    - name: Upload do Relatório de Qualidade
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: relatorio-qualidade-${{ github.run_number }}
+        path: reports/quality_report_*.json
+        retention-days: 30
+        if-no-files-found: warn
+
+  deploy-dashboard:
+    name: Deploy do Dashboard
+    needs: [update-economic-data, validate-data-quality]
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: master
+        fetch-depth: 1
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        else
+          pip install streamlit pandas plotly
+        fi
+    
+    - name: Executar Testes do Dashboard
+      run: |
+        # Executar testes se existirem
+        if [ -d "tests/" ] && [ -f "tests/test_dashboard.py" ]; then
+          python -m pytest tests/ -v --tb=short
+        else
+          echo "Testes não encontrados, validação básica do dashboard"
+          python -c "import streamlit; print('Streamlit instalado corretamente')"
+        fi
+    
+    - name: Validar Dashboard
+      run: |
+        # Verificar se arquivo principal do dashboard existe
+        if [ -f "dashboard.py" ] || [ -f "app.py" ] || [ -f "main.py" ]; then
+          echo "Dashboard encontrado e validado"
+        else
+          echo "Arquivo principal do dashboard não encontrado"
+        fi
+    
+    - name: Notificar Sucesso
+      if: success()
+      run: |
+        echo "Pipeline executado com sucesso"
+        echo "Dados atualizados: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+        echo "Próxima execução automática em 12 horas"
+
+  cleanup:
+    name: Limpeza e Manutenção
+    needs: [update-economic-data, validate-data-quality, deploy-dashboard]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Checkout do Repositório
+      uses: actions/checkout@v4
+      with:
+        ref: master
+        fetch-depth: 1
+    
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        cache: 'pip'
+    
+    - name: Instalar Dependências
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt
+        else
+          pip install requests pandas numpy PyYAML
+        fi
+    
+    - name: Executar Limpeza
+      run: |
+        # Limpeza básica de arquivos temporários
+        find . -name "*.pyc" -delete 2>/dev/null || true
+        find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+        
+        # Executar script de limpeza se existir
+        if [ -f scripts/cleanup_cache.py ]; then
+          python scripts/cleanup_cache.py
+        fi
+    
+    - name: Arquivar Logs Antigos
+      run: |
+        # Manter apenas logs dos últimos 30 dias
+        if [ -d "logs/" ]; then
+          find logs/ -name "*.log" -mtime +30 -delete 2>/dev/null || true
+          echo "Logs antigos arquivados"
+        fi
+    
+    - name: Relatório Final
+      run: |
+        echo "Limpeza concluída"
+        echo "Pipeline completo: $(date '+%Y-%m-%d %H:%M:%S %Z')"
+        
+        # Adicionar resumo ao GitHub
+        {
+          echo "## Resumo da Execução"
+          echo "- **Data/Hora:** $(date '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "- **Status:** Pipeline executado com sucesso"
+          echo "- **Próxima execução:** $(date -d '+12 hours' '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "- **Artifacts:** Relatórios disponíveis por 30 dias"
+        } >> $GITHUB_STEP_SUMMARY

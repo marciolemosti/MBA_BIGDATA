@@ -1,0 +1,81 @@
+# Docker Compose para MBA_BIGDATA
+# Autor: Márcio Lemos
+# Data: 2025-06-23
+
+version: '3.8'
+
+services:
+  # Aplicação Principal
+  mba-app:
+    build: .
+    container_name: mba_bigdata_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    environment:
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - LOG_LEVEL=INFO
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - mba_network
+
+  # Banco de Dados PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: mba_postgres
+    environment:
+      POSTGRES_DB: mba_bigdata
+      POSTGRES_USER: mba_user
+      POSTGRES_PASSWORD: mba_password_2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    networks:
+      - mba_network
+
+  # Cache Redis
+  redis:
+    image: redis:7-alpine
+    container_name: mba_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - mba_network
+
+  # Adminer (Interface Web para PostgreSQL)
+  adminer:
+    image: adminer:latest
+    container_name: mba_adminer
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - mba_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  mba_network:
+    driver: bridge
+

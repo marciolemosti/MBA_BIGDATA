@@ -1,0 +1,36 @@
+# Requirements Otimizado para Windows
+# Versões testadas e compatíveis com Python 3.11/3.12 no Windows
+
+# Framework Principal
+streamlit>=1.28.0,<2.0.0
+
+# Manipulação de Dados
+pandas>=2.0.0,<3.0.0
+numpy>=1.24.0,<2.0.0
+
+# Banco de Dados (versão binary para Windows)
+psycopg2-binary>=2.9.0,<3.0.0
+sqlalchemy>=2.0.0,<3.0.0
+
+# Visualização
+plotly>=5.15.0,<6.0.0
+
+# APIs e HTTP
+requests>=2.31.0,<3.0.0
+
+# Cache
+redis>=4.5.0,<5.0.0
+
+# Configuração
+python-dotenv>=1.0.0,<2.0.0
+
+# Utilitários
+pyyaml>=6.0.0,<7.0.0
+
+# Previsões (pode dar problema, instalar separadamente se necessário)
+# prophet>=1.1.4
+
+# Dependências adicionais para Windows
+setuptools>=65.0.0
+wheel>=0.40.0
+

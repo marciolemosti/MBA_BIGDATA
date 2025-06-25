@@ -1,0 +1,130 @@
+# Configuração da Aplicação - MBA Final
+# Sistema de análise de indicadores econômicos brasileiros
+# Autor: Márcio Lemos - MBA em Gestão Analítica em BI e Big Data
+
+# Informações do Projeto
+application:
+  name: "Dashboard Econômico Brasileiro"
+  version: "1.0.0"
+  author: "Márcio Lemos"
+  description: "Sistema de análise de indicadores econômicos brasileiros"
+  course: "MBA em Gestão Analítica em BI e Big Data"
+  year: 2025
+  
+# Cache e Performance
+cache:
+  ttl_default: 3600
+  ttl_data: 1800
+  ttl_forecasts: 7200
+  max_entries: 1000
+  cleanup_interval: 300
+
+# Análise e Previsões
+analytics:
+  forecast_horizon_months: 24
+  confidence_interval: 0.95
+  seasonal_periods: 12
+  min_data_points: 24
+  outlier_threshold: 2.5
+
+# Interface
+interface:
+  theme: "clean"
+  layout: "wide"
+  sidebar_state: "expanded"
+  chart_height: 400
+  show_quality_metrics: true
+
+# Logging
+logging:
+  level: "INFO"
+  max_file_size_mb: 10
+  backup_count: 5
+
+# Indicadores Econômicos
+indicators:
+  ipca:
+    nome: "IPCA"
+    unidade: "% a.m."
+    descricao: "Índice Nacional de Preços ao Consumidor Amplo"
+    fonte: "IBGE"
+    frequencia: "Mensal"
+    cor: "#E74C3C"
+    categoria: "Inflação"
+    
+  selic:
+    nome: "Taxa Selic"
+    unidade: "% a.a."
+    descricao: "Taxa básica de juros da economia brasileira"
+    fonte: "Banco Central do Brasil"
+    frequencia: "Reuniões COPOM"
+    cor: "#3498DB"
+    categoria: "Política Monetária"
+    
+  cambio_ptax_venda:
+    nome: "Câmbio USD/BRL"
+    unidade: "R$/US$"
+    descricao: "Taxa de câmbio do dólar americano"
+    fonte: "Banco Central do Brasil"
+    frequencia: "Diária"
+    cor: "#F39C12"
+    categoria: "Câmbio"
+    
+  deficit_primario:
+    nome: "Défict Primário"
+    unidade: "R$ bilhões"
+    descricao: "Déficit primário do governo central"
+    fonte: "Tesouro Nacional"
+    frequencia: "Mensal"
+    cor: "#9B59B6"
+    categoria: "Política Fiscal"
+    
+  arrecadacao_iof:
+    nome: "Arrecadação IOF"
+    unidade: "R$ milhões"
+    descricao: "Arrecadação do Imposto sobre Operações Financeiras"
+    fonte: "Receita Federal"
+    frequencia: "Mensal"
+    cor: "#1ABC9C"
+    categoria: "Arrecadação"
+    
+  pib:
+    nome: "PIB"
+    unidade: "% trim."
+    descricao: "Produto Interno Bruto - variação trimestral"
+    fonte: "IBGE"
+    frequencia: "Trimestral"
+    cor: "#E67E22"
+    categoria: "Atividade Econômica"
+    
+  desemprego:
+    nome: "Taxa de Desemprego"
+    unidade: "%"
+    descricao: "Taxa de desocupação (PNAD Contínua)"
+    fonte: "IBGE"
+    frequencia: "Trimestral"
+    cor: "#95A5A6"
+    categoria: "Mercado de Trabalho"
+
+# Qualidade de Dados
+data_quality:
+  validation_enabled: true
+  auto_sanitization: true
+  outlier_detection: true
+  freshness_check: true
+  
+  freshness_limits:
+    ipca: 45
+    selic: 60
+    cambio_ptax_venda: 7
+    deficit_primario: 60
+    arrecadacao_iof: 60
+    pib: 120
+    desemprego: 120
+
+# Automação
+automation:
+  data_update_schedule: "0 8,18 * * *"
+  cache_cleanup_schedule: "0 2 * * *"
+  backup_schedule: "0 3 * * 0"
+
