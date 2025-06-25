@@ -9,27 +9,27 @@
 
 ---
 
-## 🚀 **PRINCIPAIS MELHORIAS DA VERSÃO 2.0**
+##  **Recursos da Aplicação**
 
-### ✅ **APIs Reais Implementadas**
+### **APIs Reais Implementadas**
 - **IBGE API**: Coleta real de IPCA, PIB e Taxa de Desemprego
 - **Banco Central API**: Dados de Selic e Câmbio USD/BRL
 - **Tesouro Nacional API**: Informações fiscais e déficit primário
 - **Receita Federal API**: Dados de arrecadação e IOF
 
-### ✅ **Correções Críticas**
+### **Correções Críticas**
 - **Erro de Serialização JSON**: Corrigido com encoder customizado
 - **Tratamento de Tipos Numpy**: Conversão automática int64 → int nativo
 - **Cache Inteligente**: Sistema com TTL configurável e limpeza automática
 - **Rate Limiting**: Proteção contra sobrecarga das APIs
 
-### ✅ **PostgreSQL com Docker**
+### **PostgreSQL com Docker**
 - **Banco de Dados Robusto**: PostgreSQL 15 com schemas organizados
 - **Docker Compose**: Ambiente completo com PostgreSQL, Adminer e Redis
 - **Pool de Conexões**: Gerenciamento eficiente de conexões
 - **Migrations**: Scripts de inicialização e estrutura do banco
 
-### ✅ **Suporte Completo ao Windows**
+### **Suporte Completo ao Windows**
 - **Requirements Otimizado**: `requirements-windows.txt` para Windows
 - **Script de Instalação**: `install_windows.bat` automatizado
 - **Docker Alternativo**: `docker-compose-dev.yml` para desenvolvimento
@@ -37,9 +37,9 @@
 
 ---
 
-## 📋 **INSTALAÇÃO**
+##  **INSTALAÇÃO**
 
-### **🪟 Windows (Recomendado)**
+### ** Windows (Recomendado)**
 
 #### **Opção 1: Script Automatizado**
 ```bash
@@ -49,16 +49,16 @@ install_windows.bat
 
 #### **Opção 2: Manual**
 ```bash
-# Atualizar pip e setuptools
+# Atualiza pip e setuptools
 python.exe -m pip install --upgrade pip setuptools wheel
 
-# Instalar dependências otimizadas
+# Instala dependências otimizadas
 pip install -r requirements-windows.txt
 ```
 
 #### **Opção 3: Docker (Mais Fácil)**
 ```bash
-# Instalar Docker Desktop primeiro
+# Instala Docker Desktop primeiro
 # https://www.docker.com/products/docker-desktop/
 
 # Executar ambiente completo
@@ -69,22 +69,22 @@ docker-compose -f docker-compose-dev.yml up -d
 # Adminer: http://localhost:8080
 ```
 
-### **🐧 Linux/Mac**
+### ** Linux/Mac**
 ```bash
-# Criar ambiente virtual
+# Cria ambiente virtual
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 
-# Instalar dependências
+# Instala dependências
 pip install -r requirements.txt
 
-# Iniciar banco de dados
+# Inicia banco de dados
 docker-compose up -d
 ```
 
 ---
 
-## 🎯 **COMO USAR**
+##  **COMO USAR**
 
 ### **1. Coleta de Dados**
 ```bash
@@ -114,18 +114,9 @@ streamlit run src/dashboard/main.py
 
 # Ou com configurações específicas
 streamlit run src/dashboard/main.py --server.port 8501
-```
-
-### **4. Administração do Banco**
-- **Adminer**: http://localhost:8080
-  - Servidor: `postgres`
-  - Usuário: `mba_user`
-  - Senha: `mba_password_2025`
-  - Banco: `mba_bigdata`
-
 ---
 
-## 🏗️ **ARQUITETURA DO SISTEMA**
+##  **ARQUITETURA DO SISTEMA**
 
 ### **Estrutura de Diretórios**
 ```
@@ -164,7 +155,7 @@ MBA_BIGDATA/
 
 ---
 
-## 📊 **INDICADORES DISPONÍVEIS**
+##  **INDICADORES DISPONÍVEIS**
 
 | Indicador | Fonte | Frequência | Descrição |
 |-----------|-------|------------|-----------|
@@ -178,7 +169,7 @@ MBA_BIGDATA/
 
 ---
 
-## ⚡ **PERFORMANCE E QUALIDADE**
+##  **PERFORMANCE E QUALIDADE**
 
 ### **Métricas Atuais**
 - **Coleta Completa**: 30-60 segundos (7 indicadores)
@@ -194,7 +185,7 @@ MBA_BIGDATA/
 
 ---
 
-## 🔧 **CONFIGURAÇÕES**
+##  **CONFIGURAÇÕES**
 
 ### **Variáveis de Ambiente (.env)**
 ```bash
@@ -224,7 +215,7 @@ RETRY_ATTEMPTS=3
 
 ---
 
-## 🚨 **SOLUÇÃO DE PROBLEMAS**
+##  **SOLUÇÃO DE PROBLEMAS**
 
 ### **Problemas no Windows**
 1. **Consulte**: `guia_solucao_windows.md`
@@ -254,69 +245,7 @@ docker-compose logs postgres
 
 ---
 
-## 📈 **NOVIDADES DA VERSÃO 2.0**
-
-### **Funcionalidades Adicionadas**
-- ✅ Conectores para 4 APIs governamentais reais
-- ✅ Sistema de cache inteligente multicamadas
-- ✅ Banco PostgreSQL com particionamento temporal
-- ✅ Pool de conexões otimizado
-- ✅ Validação robusta de qualidade de dados
-- ✅ Processamento paralelo de indicadores
-- ✅ Rate limiting e retry logic
-- ✅ Suporte completo ao Windows
-- ✅ Docker para desenvolvimento
-- ✅ Scripts de instalação automatizada
-
-### **Problemas Corrigidos**
-- ✅ Erro de serialização JSON (numpy → Python nativo)
-- ✅ Tratamento de valores nulos e outliers
-- ✅ Compatibilidade com Python 3.12
-- ✅ Problemas de instalação no Windows
-- ✅ Performance de consultas ao banco
-- ✅ Gestão de memória e cache
-
----
-
-## 🤝 **CONTRIBUIÇÃO**
-
-### **Como Contribuir**
-1. Fork do repositório
-2. Criar branch para feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit das mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
-4. Push para branch (`git push origin feature/nova-funcionalidade`)
-5. Criar Pull Request
-
-### **Padrões de Código**
-- **Formatação**: Black (configurado)
-- **Linting**: Flake8 (configurado)
-- **Documentação**: Docstrings em português
-- **Testes**: Pytest para validação
-
----
-
-## 📝 **CHANGELOG**
-
-### **v2.0.0 - 2025-06-23**
-- ✅ Implementação de APIs reais (IBGE, BCB, Tesouro, Receita)
-- ✅ Correção do erro de serialização JSON
-- ✅ Adição do PostgreSQL com Docker
-- ✅ Sistema de cache inteligente
-- ✅ Pool de conexões de banco
-- ✅ Validação robusta de qualidade
-- ✅ Rate limiting e retry logic
-- ✅ Suporte completo ao Windows
-- ✅ Docker para desenvolvimento
-- ✅ Documentação completa
-
-### **v1.0.0 - Original**
-- Dashboard básico com dados simulados
-- Streamlit interface
-- Estrutura inicial do projeto
-
----
-
-## 📞 **SUPORTE**
+##  **SUPORTE**
 
 Para dúvidas, problemas ou sugestões:
 
@@ -326,12 +255,9 @@ Para dúvidas, problemas ou sugestões:
 
 ---
 
-## 📄 **LICENÇA**
+##  **LICENÇA**
 
 Este projeto é desenvolvido para fins acadêmicos como parte do MBA em Gestão Analítica em BI e Big Data.
 
 ---
-
-**🎉 Projeto Refatorado com Sucesso!**  
-*Versão 2.0 - Sistema ETL de nível enterprise com APIs reais, PostgreSQL e suporte completo ao Windows.*
 
