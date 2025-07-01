@@ -1,6 +1,7 @@
 # MBA Big Data - Dashboard de Indicadores Econômicos Brasileiros
 
 **Autor:** Márcio Lemos  
+**Orientador:** Prof. Ms.Thiago Bluhm  
 **Projeto:** Dashboard de Indicadores Econômicos Brasileiros  
 **MBA:** Gestão Analítica em BI e Big Data  
 **Data:** 2025-06-23
