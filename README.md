@@ -1,11 +1,9 @@
 # MBA Big Data - Dashboard de Indicadores Econômicos Brasileiros
-## Versão 2.0 - Refatorada com APIs Reais e PostgreSQL
 
 **Autor:** Márcio Lemos  
 **Projeto:** Dashboard de Indicadores Econômicos Brasileiros  
 **MBA:** Gestão Analítica em BI e Big Data  
-**Data:** 2025-06-23  
-**Versão:** 2.0.0
+**Data:** 2025-06-23
 
 ---
 
