@@ -1,49 +1,57 @@
-# Dockerfile para MBA_BIGDATA
+# Dockerfile para Docker Hub: marciolemos/mba-bigdata:db
 # Autor: Márcio Lemos
-# Data: 2025-06-23
+# Projeto: Dashboard de Indicadores Econômicos Brasileiros
 
-FROM python:3.11-slim
+FROM python:3.11.8-slim
 
-# Definir variáveis de ambiente
+# Metadados da imagem
+LABEL maintainer="Márcio Lemos"
+LABEL description="Dashboard de Indicadores Econômicos Brasileiros - MBA UNIFOR"
+LABEL version="1.0.0"
+LABEL org.opencontainers.image.source="https://github.com/marciolemosti/MBA_BIGDATA"
+
+# Variáveis de ambiente
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV STREAMLIT_SERVER_HEADLESS=true
+ENV STREAMLIT_SERVER_PORT=8501
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
-
-# Criar usuário não-root
-RUN useradd --create-home --shell /bin/bash mba_user
+ENV STREAMLIT_SERVER_HEADLESS=true
 
 # Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
-    libpq-dev \
     curl \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Criar usuário não-root
+RUN useradd --create-home --shell /bin/bash app
 
 # Definir diretório de trabalho
 WORKDIR /app
 
-# Copiar requirements primeiro (para cache de layers)
-COPY requirements.txt requirements-windows.txt ./
+# Copiar requirements primeiro (para cache do Docker)
+COPY requirements.txt .
 
-# Atualizar pip e instalar dependências
-RUN pip install --upgrade pip setuptools wheel && \
+# Instalar dependências Python
+RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copiar código do projeto
+# Copiar código da aplicação
 COPY . .
 
 # Criar diretórios necessários
-RUN mkdir -p data reports logs cache database/backups
+RUN mkdir -p data logs reports cache .streamlit && \
+    chown -R app:app /app
 
-# Ajustar permissões
-RUN chown -R mba_user:mba_user /app
+# Copiar configuração do Streamlit
+COPY .streamlit/config.toml .streamlit/
 
 # Mudar para usuário não-root
-USER mba_user
+USER app
 
-# Expor porta do Streamlit
+# Expor porta
 EXPOSE 8501
 
 # Health check
@@ -51,5 +59,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8501/_stcore/health || exit 1
 
 # Comando padrão
-CMD ["streamlit", "run", "src/dashboard/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
-
+CMD ["streamlit", "run", "src/dashboard/main.py"]
